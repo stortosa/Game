@@ -44,7 +44,6 @@ class Player {
     );
 
     this.animateImg(framesCounter);
-
   }
 
   animateImg = (framesCounter) => {
