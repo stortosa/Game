@@ -78,7 +78,7 @@ class Game {
   reset = () => {
     this.background = new Background(this.canvasW + 500, this.canvasH, this.ctx);
     this.player = new Player(this.canvasW, this.canvasH, this.ctx);
-    this.scoreBoard = new scoreBoard(this.ctx)
+    this.scoreBoard = new scoreBoard(this.ctx);
     this.obstacles = []
     this.randomObstacles = []
     this.randomImpObs = []
@@ -170,6 +170,10 @@ class Game {
 
   drawAll = () => {
     this.background.draw()
+    // this.background.drawBack()
+    // this.background.drawNave()
+    // this.background.drawTron()
+
     this.player.drawPlayer(this.framesCounter)
     this.player.drawBullet()
     this.obstacles.forEach((obstacle) => {
@@ -183,8 +187,9 @@ class Game {
     this.randomImpObs.forEach((obstacle) => {
       obstacle.draw();
     })
+    
     this.scoreBoard.drawScoreBoard()
-    // this.scoreBoard.drawScoreMssg()
+    this.scoreBoard.drawScoreMssg()
   }
 
   clear = () => {
@@ -192,7 +197,10 @@ class Game {
   }
 
   moveAll = () => {
-    this.background.move()
+    this.background.moveBack()
+    this.background.moveNave()
+    this.background.moveTron()
+
     this.player.setListeners()
     this.obstacles.forEach((obstacle) => {
       obstacle.move()

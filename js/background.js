@@ -1,6 +1,6 @@
 
 class Background {
-  constructor() {
+  constructor(w, h, ctx) {
     this.w = w
     this.h = h
     this.ctx = ctx
@@ -31,9 +31,9 @@ class Background {
 
   draw = () => {
     this.drawBack()
-    this.drawNave()
-    this.drawTron()
-    this.drawEaster()
+    // this.drawNave()
+    // this.drawTron()
+    // this.drawEaster()
     this.moveBack()
     this.moveNave()
     this.moveTron()
@@ -54,21 +54,21 @@ class Background {
     )
   }
 
-  drawNave = () => {
-    this.ctx.drawImage(this.imgNave, this.imgNaveX, this.imgNaveY, 100, 50);
-    this.ctx.drawImage(this.imgNave, this.imgNaveX, this.imgNaveY + this.h, 100, 50);
-  }
+  // drawNave = () => {
+  //   this.ctx.drawImage(this.imgNave, this.imgNaveX, this.imgNaveY, 100, 50);
+  //   this.ctx.drawImage(this.imgNave, this.imgNaveX, this.imgNaveY + this.h, 100, 50);
+  // }
 
-  drawTron = () => {
-    this.ctx.drawImage(this.imgTron, this.imgTronX + 800, this.imgTronY, 200, 100);
-    this.ctx.drawImage(this.imgTron, this.imgTronX + 800, this.imgTronY + this.h, 200, 100);
+  // drawTron = () => {
+  //   this.ctx.drawImage(this.imgTron, this.imgTronX + 100, this.imgTronY, 200, 100);
+  //   this.ctx.drawImage(this.imgTron, this.imgTronX + 100, this.imgTronY + this.h, 200, 100);
 
-  }
+  // }
 
-  drawEaster = () => {
-    this.ctx.drawImage(this.imgEaster, this.imgEasterX, this.imgEasterY, 800, 400);
-    this.ctx.drawImage(this.imgEaster, this.imgEasterX, this.imgEasterY + this.h, 800, 400);
-  }
+  // drawEaster = () => {
+  //   this.ctx.drawImage(this.imgEaster, this.imgEasterX, this.imgEasterY, 800, 400);
+  //   this.ctx.drawImage(this.imgEaster, this.imgEasterX, this.imgEasterY + this.h, 800, 400);
+  // }
 
   //poniendo movimiento:
   moveBack = () => {
