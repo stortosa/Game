@@ -19,7 +19,7 @@ class Background {
 
     this.imgTron = new Image()
     this.imgTron.src = "img/tron.jpg"
-    this.imgTronX = 500
+    this.imgTronX = 900
     this.imgTronY = 100
     this.tronDx = 5  //para movimiento
 

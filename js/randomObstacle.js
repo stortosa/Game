@@ -5,7 +5,8 @@ class RandomObstacle {
     this.h = 100;
     this.dx = 10;
     this.x = w;
-    this.y = (playerY + playerH - this.h + 5) + this.getRandomInt(-100, 150)
+    this.y = this.getRandomInt(100, 150)
+    // this.y = (playerY + playerH - this.h + 5) + this.getRandomInt(-100, 150)
     this.img = new Image();
     this.img.src = "img/gorila.png";
   }
