@@ -15,13 +15,13 @@ class Background {
     this.imgNave.src = "img/nave.jpg"
     this.imgNaveX = 20
     this.imgNaveY = 50
-    this.naveDx = 10  //para movimiento
+    this.naveDx = 8  //para movimiento
 
     this.imgTron = new Image()
     this.imgTron.src = "/img/tron.jpg"
     this.imgTronX = 0
     this.imgTronY = 0
-    this.tronDx = 10  //para movimiento
+    this.tronDx = 8  //para movimiento
 
     this.imgEaster = new Image()
     this.imgEaster.src = "img/easterEgg.jpg"
@@ -34,6 +34,9 @@ class Background {
     this.drawNave()
     this.drawTron()
     this.drawEaster()
+    this.moveBack()
+    this.moveNave()
+    this.moveTron()
   }
 
   drawBack = () => {
@@ -65,5 +68,30 @@ class Background {
   drawEaster = () => {
     this.ctx.drawImage(this.imgEaster, this.imgEasterX, this.imgEasterY, 800, 400);
     this.ctx.drawImage(this.imgEaster, this.imgEasterX, this.imgEasterY + this.h, 800, 400);
+  }
+
+  //poniendo movimiento:
+  moveBack = () => {
+    this.imgBackX -= this.imgBackDx;
+
+    // o : 
+    //   this.imgBackX -= this.imgBackDx;
+
+    //   if (this.imgBackX < -this.w) this.imgBackX = 0;
+    // }
+
+    //o :
+    // this.imgBackX += this.imgBackDx;
+
+    // if (this.imgBackX > 0) {
+    //   this.imgBackX = 0
+    // }
+  }
+  moveNave = () => {
+    this.imgNaveX += this.naveDx;
+  }
+
+  moveTron = () => {
+    this.imgTronX -= this.tronDx;
   }
 }
