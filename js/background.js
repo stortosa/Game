@@ -1,31 +1,69 @@
 
 class Background {
-  constructor(){
+  constructor() {
     this.w = w
-    this.y = y
-    this.ctx = ctx 
+    this.h = h
+    this.ctx = ctx
     this.canvas = ""
     this.imgBack = new Image()
     this.imgBack.src = "img/backgroundFinal.png"
-    this.imgBack.x = 0
-    this.imgBack.y = 0
-    this.imgBack.dx = 10 //para movimiento
+    this.imgBackX = 0
+    this.imgBackY = 0
+    this.imgBackDx = 10 //para movimiento
 
     this.imgNave = new Image()
     this.imgNave.src = "img/nave.jpg"
-    this.imgNave.x = 20
-    this.imgNave.y = 50
+    this.imgNaveX = 20
+    this.imgNaveY = 50
     this.naveDx = 10  //para movimiento
 
     this.imgTron = new Image()
     this.imgTron.src = "/img/tron.jpg"
-    this.imgTron.x = 0
-    this.imgTron.y = 0
+    this.imgTronX = 0
+    this.imgTronY = 0
     this.tronDx = 10  //para movimiento
 
     this.imgEaster = new Image()
     this.imgEaster.src = "img/easterEgg.jpg"
-    this.imgEaster.x = 200
-    this.imgEaster.y = 300
+    this.imgEasterX = 200
+    this.imgEasterY = 300
+  }
+
+  draw = () => {
+    this.drawBack()
+    this.drawNave()
+    this.drawTron()
+    this.drawEaster()
+  }
+
+  drawBack = () => {
+    /** @type HTMLCanvasElement */
+    this.canvas = document.querySelector("#canvas");
+    /** @type CanvasRenderingContext2D */
+    this.ctx = this.canvas.getContext("2d");
+    // this.ctx.drawImage(this.imgBack, 0, 0, w, h);
+    this.ctx.drawImage(
+      this.imgBack,
+      this.x,
+      this.y - 300,
+      10000,
+      this.h + 300
+    )
+  }
+
+  drawNave = () => {
+    this.ctx.drawImage(this.imgNave, this.imgNaveX, this.imgNaveY, 100, 50);
+    this.ctx.drawImage(this.imgNave, this.imgNaveX, this.imgNaveY + this.h, 100, 50);
+  }
+
+  drawTron = () => {
+    this.ctx.drawImage(this.imgTron, this.imgTronX + 800, this.imgTronY, 200, 100);
+    this.ctx.drawImage(this.imgTron, this.imgTronX + 800, this.imgTronY + this.h, 200, 100);
+
+  }
+
+  drawEaster = () => {
+    this.ctx.drawImage(this.imgEaster, this.imgEasterX, this.imgEasterY, 800, 400);
+    this.ctx.drawImage(this.imgEaster, this.imgEasterX, this.imgEasterY + this.h, 800, 400);
   }
 }
