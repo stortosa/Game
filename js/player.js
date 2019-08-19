@@ -7,10 +7,12 @@ class Player {
       arrowUp: 38,
       spaceBar: 32,
     }
+
     this.x = this.canvasW * 0.08
     // guardar posición original (suelo)
     this.y0 = this.canvasH * 0.8;
     this.y = this.y0;
+    this.vy = 1;
 
     this.img = new Image();
     this.img.src = "img/ProtaDefinitivo.png";
@@ -23,14 +25,14 @@ class Player {
     this.w = 63;
     this.h = 93;
 
-    this.vy = 1;
-
     this.bullets = [];
 
-    this.setListeners();
+    // this.setListeners();
   }
 
   drawPlayer = (framesCounter) => {
+    this.setListeners();
+
     this.ctx.drawImage(
       this.img,
       this.img.frameIndex * Math.floor(this.img.width / this.img.frames),
@@ -56,15 +58,38 @@ class Player {
     }
   }
 
+  // setListeners = () => {
+  //   document.onkeydown = function (event) {
+  //     console.log("kkkkkkkkkkkkkkkkkkkkkkk")
+  //     if (event.keyCode === this.keys.arrowUp && this.y == this.y0) {
+  //       console.log("sisisisissi")
+  //       this.y -= 10;
+  //       this.vy -= 15;
+  //       // console.log("SSSSSSSSAAAAAAAAALLLLLLLTTTTTTTTAAAAAAA")
+  //     } else if (event.keyCode == this.keys.spaceBar) {
+  //       console.log("firefire"),
+
+  //         this.shoot();
+  //     }
+  //   }.bind(this);
+  // }
   setListeners = () => {
-    document.onkeydown = function (event) {
-      if (event.keyCode === this.keys.TOP_KEY && this.y == this.y0) {
-        this.y -= 5;
-        this.vy -= 10;
-      } else if (event.keyCode == this.keys.SPACE) {
-        this.shoot();
+    document.onkeydown = (e) => {
+      e.preventDefault();
+      switch (e.keyCode) {
+        case 38:
+          if (this.y === this.y0) {
+            console.log("SSSSAAAALLLLLLLTTTTTTAAAAA")
+            this.y -= 5
+            this.vy -= 15
+          }
+          break;
+        case 32:
+          this.shoot()
+          console.log("FFIIIIIRRRREEEE")
+          break;
       }
-    }.bind(this);
+    }
   }
 
   shoot = () => {

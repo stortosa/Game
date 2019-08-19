@@ -4,8 +4,8 @@ class Game {
   constructor() {
     this.canvasDOMEl = undefined;
     this.ctx = undefined;
-    this.canvasW = 1200;
-    this.canvasH = 750;
+    this.canvasW = 1400;
+    this.canvasH = 600;
     this.framesCounter = 0;
     this.intervalId = undefined;
     this.counter = 0;
@@ -45,7 +45,7 @@ class Game {
 
       this.drawAll();
       this.moveAll();
-
+      // this.setListeners();
       this.clearObstacles();
 
       if (this.isCollisionObstacle()) {
@@ -202,6 +202,7 @@ class Game {
     this.background.moveTron()
 
     this.player.setListeners()
+
     this.obstacles.forEach((obstacle) => {
       obstacle.move()
     });
@@ -227,19 +228,19 @@ class Game {
 
   generateObstacle = () => {
     this.obstacles.push(
-      new Obstacle(this.canvasW, this.player.y0, this.player.sH, this.ctx)
+      new Obstacle(this.canvasW, this.player.y0, this.player.h, this.ctx)
     );
   }
 
   generateRandomObstacle = () => {
     this.randomObstacles.push(
-      new RandomObstacle(this.canvasW, this.player.y0, this.player.sH, this.ctx)
+      new RandomObstacle(this.canvasW, this.player.y0, this.player.h, this.ctx)
     );
   }
 
   generateRandomImpObs = () => {
     this.randomImpObs.push(
-      new RandomImpObs(this.canvasW, this.player.y0, this.player.sH, this.ctx)
+      new RandomImpObs(this.canvasW, this.player.y0, this.player.h, this.ctx)
     );
   }
 
