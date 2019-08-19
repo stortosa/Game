@@ -7,7 +7,7 @@ class scoreBoard {
   }
 
   increaseScore = () => {
-    this.score += 1
+    this.score += 0.01
     console.log(this.score)
 
   }

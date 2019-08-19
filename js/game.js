@@ -170,9 +170,6 @@ class Game {
 
   drawAll = () => {
     this.background.draw()
-    // this.background.drawBack()
-    // this.background.drawNave()
-    // this.background.drawTron()
 
     this.player.drawPlayer(this.framesCounter)
     this.player.drawBullet()
@@ -189,7 +186,7 @@ class Game {
     })
     
     this.scoreBoard.drawScoreBoard()
-    this.scoreBoard.drawScoreMssg()
+    // this.scoreBoard.drawScoreMssg()
   }
 
   clear = () => {
