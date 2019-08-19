@@ -58,39 +58,42 @@ class Player {
     }
   }
 
-  // setListeners = () => {
-  //   document.onkeydown = function (event) {
-  //     console.log("kkkkkkkkkkkkkkkkkkkkkkk")
-  //     if (event.keyCode === this.keys.arrowUp && this.y == this.y0) {
-  //       console.log("sisisisissi")
-  //       this.y -= 10;
-  //       this.vy -= 15;
-  //       // console.log("SSSSSSSSAAAAAAAAALLLLLLLTTTTTTTTAAAAAAA")
-  //     } else if (event.keyCode == this.keys.spaceBar) {
-  //       console.log("firefire"),
-
-  //         this.shoot();
-  //     }
-  //   }.bind(this);
-  // }
   setListeners = () => {
-    document.onkeydown = (e) => {
-      e.preventDefault();
-      switch (e.keyCode) {
-        case 38:
-          if (this.y === this.y0) {
-            console.log("SSSSAAAALLLLLLLTTTTTTAAAAA")
-            this.y -= 5
-            this.vy -= 15
-          }
-          break;
-        case 32:
-          this.shoot()
-          console.log("FFIIIIIRRRREEEE")
-          break;
+    document.onkeydown = function (event) {
+      console.log("kkkkkkkkkkkkkkkkkkkkkkk")
+      if (event.keyCode === this.keys.arrowUp && this.y == this.y0) {
+        console.log("sisisisissi")
+        this.y -= 80;
+        this.vy -= 15;
+        console.log("llllllllllllllllll")
+
+      } else if (event.keyCode == this.keys.spaceBar) {
+        console.log("firefire"),
+
+          this.shoot();
       }
-    }
+    }.bind(this);
   }
+
+  // setListeners = () => {
+  //   document.onkeydown = (e) => {
+  //     e.preventDefault();
+  //     switch (e.keyCode) {
+  //       case 38:
+  //         if (this.y == this.y0) {
+  //           console.log("SSSSAAAALLLLLLLTTTTTTAAAAA")
+  //           this.y -= 80
+  //           this.vy -= 15
+  //           console.log("llllllllllllllllll")
+  //         }
+  //         break;
+  //       case 32:
+  //         this.shoot()
+  //         console.log("FFIIIIIRRRREEEE")
+  //         break;
+  //     }
+  //   }
+  // }
 
   shoot = () => {
     var bullet = new Bullet(

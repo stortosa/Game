@@ -25,7 +25,7 @@ class scoreBoard {
   drawScoreMssg = () => {
     this.ctx.font = '20px Comic Sans MS';
     this.ctx.fillStyle = "black";
-    this.ctx.fillText(`EEEEoooooo `, 50, 500);
+    this.ctx.fillText(` `, 50, 500);
   }
 
   getScore = () => {
