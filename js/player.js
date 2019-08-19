@@ -60,17 +60,13 @@ class Player {
 
   setListeners = () => {
     document.onkeydown = function (event) {
-      console.log("kkkkkkkkkkkkkkkkkkkkkkk")
       if (event.keyCode === this.keys.arrowUp && this.y == this.y0) {
-        console.log("sisisisissi")
         this.y -= 7;
         this.vy -= 11;
-        console.log("llllllllllllllllll")
 
       } else if (event.keyCode == this.keys.spaceBar) {
-        console.log("firefire"),
 
-          this.shoot();
+        this.shoot();
       }
     }.bind(this);
   }

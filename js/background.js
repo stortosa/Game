@@ -12,16 +12,16 @@ class Background {
     this.imgBackDx = 5 //para movimiento
 
     this.imgNave = new Image()
-    this.imgNave.src = "img/nave.jpg"
-    this.imgNaveX = 20
-    this.imgNaveY = 50
-    this.naveDx = 8  //para movimiento
+    this.imgNave.src = "img/falcon.png"
+    this.imgNaveX = 10
+    this.imgNaveY = 80
+    this.naveDx = 3  //para movimiento
 
     this.imgTron = new Image()
-    this.imgTron.src = "img/tron.jpg"
+    this.imgTron.src = "img/tronbike2.png"
     this.imgTronX = 900
-    this.imgTronY = 100
-    this.tronDx = 5  //para movimiento
+    this.imgTronY = 300
+    this.tronDx = 7  //para movimiento
 
     this.imgEaster = new Image()
     this.imgEaster.src = "img/easterEgg.jpg"
@@ -59,8 +59,8 @@ class Background {
   }
 
   drawTron = () => {
-    this.ctx.drawImage(this.imgTron, this.imgTronX + 100, this.imgTronY, 200, 100);
-    this.ctx.drawImage(this.imgTron, this.imgTronX + 100, this.imgTronY + this.h, 200, 100);
+    this.ctx.drawImage(this.imgTron, this.imgTronX + 500, this.imgTronY, 100, 60);
+    this.ctx.drawImage(this.imgTron, this.imgTronX + 500, this.imgTronY + this.h, 100, 60);
 
   }
 
