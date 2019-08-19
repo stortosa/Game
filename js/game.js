@@ -202,6 +202,7 @@ class Game {
     this.background.moveTron()
 
     this.player.setListeners()
+    this.player.movePlayer()
 
     this.obstacles.forEach((obstacle) => {
       obstacle.move()

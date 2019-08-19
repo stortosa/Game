@@ -7,8 +7,8 @@ class Player {
       arrowUp: 38,
       spaceBar: 32,
     }
-
     this.x = this.canvasW * 0.08
+
     // guardar posición original (suelo)
     this.y0 = this.canvasH * 0.8;
     this.y = this.y0;
@@ -27,11 +27,11 @@ class Player {
 
     this.bullets = [];
 
-    // this.setListeners();
+    this.setListeners();
   }
 
   drawPlayer = (framesCounter) => {
-    this.setListeners();
+    // this.setListeners();
 
     this.ctx.drawImage(
       this.img,
@@ -63,8 +63,8 @@ class Player {
       console.log("kkkkkkkkkkkkkkkkkkkkkkk")
       if (event.keyCode === this.keys.arrowUp && this.y == this.y0) {
         console.log("sisisisissi")
-        this.y -= 80;
-        this.vy -= 15;
+        this.y -= 7;
+        this.vy -= 11;
         console.log("llllllllllllllllll")
 
       } else if (event.keyCode == this.keys.spaceBar) {
@@ -116,5 +116,19 @@ class Player {
       bullet.draw();
       bullet.move();
     });
+  }
+
+  movePlayer = () => {
+    // Aumenta la velocidad en el eje y.
+    var gravity = 0.4;
+
+    // solo salta cuando el personaje está en el suelo
+    if (this.y >= this.y0) {
+      this.vy = 1;
+      this.y = this.y0;
+    } else {
+      this.vy += gravity;
+      this.y += this.vy;
+    }
   }
 }
