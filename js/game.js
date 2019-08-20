@@ -42,7 +42,6 @@ class Game {
       if (this.framesCounter % 100 === 0) this.generateRandomObstacle();
       if (this.framesCounter % 100 === 0) this.generateRandomImpObs();
 
-
       this.drawAll();
       this.moveAll();
       // this.setListeners();
@@ -78,6 +77,7 @@ class Game {
   reset = () => {
     this.background = new Background(this.canvasW + 500, this.canvasH, this.ctx);
     this.player = new Player(this.canvasW, this.canvasH, this.ctx);
+    this.enemy = new Enemy(this.ctx, 800, 500, 13, this.wCanvas, this.framesCounter);
     this.scoreBoard = new scoreBoard(this.ctx);
     this.obstacles = []
     this.randomObstacles = []
@@ -173,6 +173,9 @@ class Game {
 
     this.player.drawPlayer(this.framesCounter)
     this.player.drawBullet()
+    this.enemy.draw(this.framesCounter);
+
+
     this.obstacles.forEach((obstacle) => {
       obstacle.draw();
     })
@@ -200,6 +203,8 @@ class Game {
 
     this.player.setListeners()
     this.player.movePlayer()
+
+    this.enemy.move();
 
     this.obstacles.forEach((obstacle) => {
       obstacle.move()

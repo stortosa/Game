@@ -71,26 +71,6 @@ class Player {
     }.bind(this);
   }
 
-  // setListeners = () => {
-  //   document.onkeydown = (e) => {
-  //     e.preventDefault();
-  //     switch (e.keyCode) {
-  //       case 38:
-  //         if (this.y == this.y0) {
-  //           console.log("SSSSAAAALLLLLLLTTTTTTAAAAA")
-  //           this.y -= 80
-  //           this.vy -= 15
-  //           console.log("llllllllllllllllll")
-  //         }
-  //         break;
-  //       case 32:
-  //         this.shoot()
-  //         console.log("FFIIIIIRRRREEEE")
-  //         break;
-  //     }
-  //   }
-  // }
-
   shoot = () => {
     var bullet = new Bullet(
       this.x + this.w,
