@@ -1,14 +1,14 @@
 class RandomObstacle {
   constructor(w, playerY, playerH, ctx) {
     this.ctx = ctx;
-    this.w = 50;
-    this.h = 80;
-    this.dx = 10;
+    this.w = 105;
+    this.h = 110;
+    this.dx = 15;
     this.x = w;
-    this.y = this.getRandomInt(100, 150)
+    this.y = this.getRandomInt(50, 200)
     // this.y = (playerY + playerH - this.h + 5) + this.getRandomInt(-100, 150)
     this.img = new Image();
-    this.img.src = "img/cactus.jpg";
+    this.img.src = "img/x_wing2.png";
   }
 
   getRandomInt = (min, max) => {

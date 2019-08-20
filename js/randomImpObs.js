@@ -1,13 +1,13 @@
 class RandomImpObs {
   constructor(w, playerY, playerH, ctx) {
     this.ctx = ctx;
-    this.w = 50;
+    this.w = 90;
     this.h = this.w;
     this.dx = 10;
     this.x = w;
-    this.y = this.getRandomInt(100, 600)
+    this.y = this.getRandomInt(200, 600)
     this.img = new Image();
-    this.img.src = "img/cactus.jpg";
+    this.img.src = "img/falcon.png";
   }
 
   getRandomInt = (min, max) => {

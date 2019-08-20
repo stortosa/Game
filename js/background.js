@@ -32,10 +32,14 @@ class Background {
   draw = () => {
     this.drawBack()
     this.drawNave()
+    // this.drawNave2()
+    // this.drawNave3()
     this.drawTron()
     // this.drawEaster()
     this.moveBack()
     this.moveNave()
+    this.moveNave2()
+    this.moveNave3()
     this.moveTron()
   }
 
@@ -89,6 +93,14 @@ class Background {
     // }
   }
   moveNave = () => {
+    this.imgNaveX += this.naveDx;
+  }
+
+  moveNave2 = () => {
+    this.imgNaveX += this.naveDx;
+  }
+
+  moveNave3 = () => {
     this.imgNaveX += this.naveDx;
   }
 

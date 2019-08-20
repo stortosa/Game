@@ -50,6 +50,12 @@ class Game {
       if (this.isCollisionObstacle()) {
         this.gameOver();
       }
+      if (this.isCollisionrandomObstacle()) {
+        this.gameOver();
+      }
+      if (this.isCollisionrandomImpObs()) {
+        this.gameOver();
+      }
       if (this.isBulletCollision()) {
         this.destroyrandomObs()
         this.destroyBullet()
@@ -199,6 +205,9 @@ class Game {
   moveAll = () => {
     this.background.moveBack()
     this.background.moveNave()
+    // this.background.moveNave2()
+    // this.background.moveNave3()
+
     this.background.moveTron()
 
     this.player.setListeners()

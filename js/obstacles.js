@@ -3,16 +3,16 @@ class Obstacle {
     this.ctx = ctx;
     this.w = 15; //
     this.h = this.w * 3;
-    this.enemyW = 100;
+    this.enemyW = 50;
     this.enemyH = 80;
     this.dx = 12;
     this.x = w;
-    this.y = playerY + playerH - this.h - 5;
+    this.y = playerY + playerH - this.h - 2;
     this.posY = 500
     
     //imagen del gorila:
     this.imgEnemy = new Image();
-    this.imgEnemy.src = "img/totemGorila2.png";
+    this.imgEnemy.src = "img/firegood.png";
 
   }
 
@@ -21,9 +21,9 @@ class Obstacle {
     this.ctx.drawImage(
       this.imgEnemy,
       this.x, //donde ponerlo inicio (x, y)
-      this.y -30,
-      60,
-      80
+      this.y -200,
+      120,
+      340
     )
   }
 
