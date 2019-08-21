@@ -3,7 +3,7 @@ class Obstacle {
     this.ctx = ctx;
     this.w = 15; //
     this.h = this.w * 3;
-    this.enemyW = 50;
+    this.enemyW = 80;
     this.enemyH = 80;
     this.dx = 12;
     this.x = w;

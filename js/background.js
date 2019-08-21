@@ -6,7 +6,9 @@ class Background {
     this.ctx = ctx
     // this.canvas = ""
     this.imgBack = new Image()
-    this.imgBack.src = "img/backgroundFinal.png"
+    this.imgBack.src = "img/back2.png"
+
+    // this.imgBack.src = "img/backgroundFinal.png"
     this.imgBackX = 0
     this.imgBackY = 0
     this.imgBackDx = 5 //para movimiento
