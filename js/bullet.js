@@ -6,7 +6,7 @@ class Bullet {
     this.y0 = y0
     this.h = h
     this.ctx = ctx
-    this.r = 7;
+    this.r = 10;
     this.vx = 13;
     this.vy = 1;
 

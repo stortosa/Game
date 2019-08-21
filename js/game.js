@@ -84,6 +84,7 @@ class Game {
     this.background = new Background(this.canvasW + 500, this.canvasH, this.ctx);
     this.player = new Player(this.canvasW, this.canvasH, this.ctx);
     this.enemy = new Enemy(this.ctx, 800, 500, 13, this.wCanvas, this.framesCounter);
+    // this.cat = new Cat(this.ctx, 700, 20, 10, this.wCanvas, this.framesCounter)
     this.scoreBoard = new scoreBoard(this.ctx);
     this.obstacles = []
     this.randomObstacles = []
@@ -137,18 +138,6 @@ class Game {
     })
   }
 
-  isBulletCollision = () => {
-    return this.randomObstacles.some(obstacle => {
-      for (let i = 0; i < this.player.bullets.length; i++) {
-        return (
-          this.player.bullets[i].x + (this.player.bullets[i].r * 3) >= obstacle.x &&
-          this.player.bullets[i].x <= obstacle.x + obstacle.w + 10 &&
-          this.player.bullets[i].y + (this.player.bullets[i].r * 3) >= obstacle.y &&
-          this.player.bullets[i].y <= obstacle.y + obstacle.h + 10
-        )
-      }
-    })
-  }
 
   destroyObs = () => {
     this.randomObstacles.forEach((obstacle, idx) => {
@@ -180,7 +169,7 @@ class Game {
     this.player.drawPlayer(this.framesCounter)
     this.player.drawBullet()
     this.enemy.draw(this.framesCounter);
-
+    // this.cat.draw(this.framesCounter);
 
     this.obstacles.forEach((obstacle) => {
       obstacle.draw();
@@ -214,6 +203,7 @@ class Game {
     this.player.movePlayer()
 
     this.enemy.move();
+    // this.cat.move();
 
     this.obstacles.forEach((obstacle) => {
       obstacle.move()
