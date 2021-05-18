@@ -18,6 +18,9 @@ class Bullet {
     this.ctx.fillStyle = "green";
     this.ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
     this.ctx.fill();
+    this.ctx.lineWidth = 5;
+    this.strokeStyle = "purple";
+    this.ctx.stroke();
     this.ctx.closePath();
   }
 

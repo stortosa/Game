@@ -38,9 +38,9 @@ class Game {
       if (this.framesCounter > 3500) {
         this.framesCounter = 0;
       }
-      if (this.framesCounter % 100 === 0) this.generateObstacle();
-      if (this.framesCounter % 100 === 0) this.generateRandomObstacle();
-      if (this.framesCounter % 100 === 0) this.generateRandomImpObs();
+      // if (this.framesCounter % 100 === 0) this.generateObstacle();
+      // if (this.framesCounter % 100 === 0) this.generateRandomObstacle();
+      // if (this.framesCounter % 100 === 0) this.generateRandomImpObs();
 
       this.drawAll();
       this.moveAll();
@@ -53,9 +53,9 @@ class Game {
       if (this.isCollisionrandomObstacle()) {
         this.gameOver();
       }
-      if (this.isCollisionrandomImpObs()) {
-        this.gameOver();
-      }
+      // if (this.isCollisionrandomImpObs()) {
+      //   this.gameOver();
+      // }
       if (this.isBulletCollision()) {
         this.destroyrandomObs()
         this.destroyBullet()
@@ -83,7 +83,7 @@ class Game {
   reset = () => {
     this.background = new Background(this.canvasW + 500, this.canvasH, this.ctx);
     this.player = new Player(this.canvasW, this.canvasH, this.ctx);
-    this.enemy = new Enemy(this.ctx, 800, 500, 13, this.wCanvas, this.framesCounter);
+    // this.enemy = new Enemy(this.ctx, 800, 500, 13, this.wCanvas, this.framesCounter);
     // this.cat = new Cat(this.ctx, 700, 20, 10, this.wCanvas, this.framesCounter)
     this.scoreBoard = new scoreBoard(this.ctx);
     this.obstacles = []
@@ -114,16 +114,19 @@ class Game {
     })
   }
 
-  isCollisionrandomImpObs = () => {
-    return this.randomImpObs.some(obstacle => {
-      return (
-        this.player.x + this.player.w - 40 >= obstacle.x &&
-        this.player.x + 100 <= obstacle.x + obstacle.w &&
-        this.player.y + (this.player.h) >= obstacle.y &&
-        this.player.y <= obstacle.y + obstacle.h - 50
-      )
-    })
-  }
+  //para la colisioncon los bananas coins
+  // isCollisionrandomImpObs = () => {
+  //   return this.randomImpObs.some(obstacle => {
+  //     return (
+  //       this.player.x + this.player.w - 40 >= obstacle.x &&
+  //       this.player.x + 100 <= obstacle.x + obstacle.w &&
+  //       this.player.y + (this.player.h) >= obstacle.y &&
+  //       this.player.y <= obstacle.y + obstacle.h - 50
+  //     )
+  //     // ,   delete this.randomImpObs[index]
+  //   }
+  //   )
+  // }
 
   isBulletCollision = () => {
     return this.randomObstacles.some(obstacle => {
@@ -144,6 +147,7 @@ class Game {
       if (this.isBulletCollision()) {
         this.destroyedObstacle = idx
         obstacle.destroyrandomObs()
+        // delete this.randomImpObs[index]
       }
     }
     )
@@ -168,7 +172,7 @@ class Game {
 
     this.player.drawPlayer(this.framesCounter)
     this.player.drawBullet()
-    this.enemy.draw(this.framesCounter);
+    // this.enemy.draw(this.framesCounter);
     // this.cat.draw(this.framesCounter);
 
     this.obstacles.forEach((obstacle) => {
@@ -202,7 +206,7 @@ class Game {
     this.player.setListeners()
     this.player.movePlayer()
 
-    this.enemy.move();
+    // this.enemy.move();
     // this.cat.move();
 
     this.obstacles.forEach((obstacle) => {
@@ -228,23 +232,23 @@ class Game {
     })
   }
 
-  generateObstacle = () => {
-    this.obstacles.push(
-      new Obstacle(this.canvasW, this.player.y0, this.player.h, this.ctx)
-    );
-  }
+  // generateObstacle = () => {
+  //   this.obstacles.push(
+  //     new Obstacle(this.canvasW, this.player.y0, this.player.h, this.ctx)
+  //   );
+  // }
 
-  generateRandomObstacle = () => {
-    this.randomObstacles.push(
-      new RandomObstacle(this.canvasW, this.player.y0, this.player.h, this.ctx)
-    );
-  }
+  // generateRandomObstacle = () => {
+  //   this.randomObstacles.push(
+  //     new RandomObstacle(this.canvasW, this.player.y0, this.player.h, this.ctx)
+  //   );
+  // }
 
-  generateRandomImpObs = () => {
-    this.randomImpObs.push(
-      new RandomImpObs(this.canvasW, this.player.y0, this.player.h, this.ctx)
-    );
-  }
+  // generateRandomImpObs = () => {
+  //   this.randomImpObs.push(
+  //     new RandomImpObs(this.canvasW, this.player.y0, this.player.h, this.ctx)
+  //   );
+  // }
 
   disableButton = () => {
     document.getElementById("start-button").style.display = "none";

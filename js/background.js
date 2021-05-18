@@ -9,9 +9,11 @@ class Background {
     this.imgBack.src = "img/back2.png"
 
     // this.imgBack.src = "img/backgroundFinal.png"
+    //si poner el background unificado recuerda tocar los parametro de move y draw
+    //y alargar la imagen
     this.imgBackX = 0
     this.imgBackY = 0
-    this.imgBackDx = 5 //para movimiento
+    this.imgBackDx = 4 //para movimiento
 
     this.imgNave = new Image()
     this.imgNave.src = "img/falcon.png"
@@ -53,10 +55,17 @@ class Background {
     this.ctx.drawImage(
       this.imgBack,
       this.imgBackX,
-      this.imgBackY - 300,
-      10000,
-      this.h + 300
-    )
+      this.imgBackY - 200,
+      this.w + 600,
+      this.h + 200
+    );
+    this.ctx.drawImage(
+      this.imgBack,
+      this.imgBackX + this.w,
+      this.imgBackY - 200,
+      this.w + 600,
+      this.h + 200
+    );
   }
 
   drawNave = () => {
@@ -79,13 +88,13 @@ class Background {
 
   //poniendo movimiento:
   moveBack = () => {
-    this.imgBackX -= this.imgBackDx;
+    // this.imgBackX -= this.imgBackDx;
 
     // o : 
-    //   this.imgBackX -= this.imgBackDx;
+      this.imgBackX -= this.imgBackDx;
 
-    //   if (this.imgBackX < -this.w) this.imgBackX = 0;
-    // }
+      if (this.imgBackX < -this.w) this.imgBackX = 0;
+    }
 
     //o :
     // this.imgBackX += this.imgBackDx;
@@ -93,7 +102,7 @@ class Background {
     // if (this.imgBackX > 0) {
     //   this.imgBackX = 0
     // }
-  }
+  // }
   moveNave = () => {
     this.imgNaveX += this.naveDx;
   }
