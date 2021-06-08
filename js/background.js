@@ -1,19 +1,18 @@
-
 class Background {
   constructor(w, h, ctx) {
     this.w = w
     this.h = h
     this.ctx = ctx
     // this.canvas = ""
-    this.imgBack = new Image()
-    this.imgBack.src = "img/back2.png"
-
+    // this.imgBack =     
+    this.imgBackgroundFinal = new Image();
+    this.imgBackgroundFinal.src = "Background/backgroundFinal.png";
     // this.imgBack.src = "img/backgroundFinal.png"
     //si poner el background unificado recuerda tocar los parametro de move y draw
     //y alargar la imagen
     this.imgBackX = 0
     this.imgBackY = 0
-    this.imgBackDx = 4 //para movimiento
+    this.imgBackDx = 10 //para movimiento 4
 
     this.imgNave = new Image()
     this.imgNave.src = "img/falcon.png"
@@ -40,32 +39,40 @@ class Background {
     // this.drawNave3()
     this.drawTron()
     // this.drawEaster()
-    this.moveBack()
+    // this.moveBack()
     this.moveNave()
     this.moveNave2()
     this.moveNave3()
     this.moveTron()
+    //
+    this.moveLeft()
+    this.moveRight()
+    this.move()
   }
 
   drawBack = () => {
     /** @type HTMLCanvasElement */
     this.canvas = document.querySelector("#canvas");
     /** @type CanvasRenderingContext2D */
-    // this.ctx = this.canvas.getContext("2d");
-    this.ctx.drawImage(
-      this.imgBack,
-      this.imgBackX,
-      this.imgBackY - 200,
-      this.w + 600,
-      this.h + 200
-    );
-    this.ctx.drawImage(
-      this.imgBack,
-      this.imgBackX + this.w,
-      this.imgBackY - 200,
-      this.w + 600,
-      this.h + 200
-    );
+    this.ctx = this.canvas.getContext("2d");
+    //
+    // this.ctx.drawImage(this.imgBackgroundFinal, 0, 0, w, h);
+    //
+
+    // this.ctx.drawImage(
+    //   this.imgBack,
+    //   this.imgBackX,
+    //   this.imgBackY - 200,
+    //   this.w + 600,
+    //   this.h + 200
+    // );
+    // this.ctx.drawImage(
+    //   this.imgBack,
+    //   this.imgBackX + this.w,
+    //   this.imgBackY - 200,
+    //   this.w + 600,
+    //   this.h + 200
+    // );
   }
 
   drawNave = () => {
@@ -86,23 +93,25 @@ class Background {
     }
   }
 
-  //poniendo movimiento:
-  moveBack = () => {
-    // this.imgBackX -= this.imgBackDx;
 
-    // o : 
-      this.imgBackX -= this.imgBackDx;
+  // nuevo para mover el background:
+  moveLeft() {
+    this.imgBackX -= this.imgBackDx;
+  }
 
-      if (this.imgBackX < -this.w) this.imgBackX = 0;
+  moveRight() {
+    this.imgBackX += this.imgBackDx;
+
+    if (this.imgBackX > 0) {
+      this.imgBackX = 0
     }
+  }
 
-    //o :
-    // this.imgBackX += this.imgBackDx;
+  move() {
+    this.imgBackX -= this.imgBackDx;
+  }
 
-    // if (this.imgBackX > 0) {
-    //   this.imgBackX = 0
-    // }
-  // }
+  // hasta aqui
   moveNave = () => {
     this.imgNaveX += this.naveDx;
   }

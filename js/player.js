@@ -3,16 +3,23 @@ class Player {
     this.canvasW = w
     this.canvasH = h
     this.ctx = ctx
+    this.keyRight = 39;
+    this.keyLeft = 37;
+    // this.keyJump = 32;
     this.keys = {
-      arrowUp: 38,
+      // arrowUp: 38,
       spaceBar: 32,
+      right: false,
+      left: false,
+      jump: false
     }
     this.x = this.canvasW * 0.08
-
+    this.posX = 80;
     // guardar posición original (suelo)
     this.y0 = this.canvasH * 0.8;
     this.y = this.y0;
     this.vy = 1;
+    this.posY = this.y0;
 
     this.img = new Image();
     this.img.src = "img/ProtaDefinitivo.png";
@@ -30,6 +37,49 @@ class Player {
     this.setListeners();
   }
 
+    // new to player moving:
+
+    moveRight() {
+      this.keys.right = true;
+      this.keys.left = false;
+      this.posX += 40;
+  
+      this.animateImg(framesCounter)
+      if (this.posX > 700) { //limitano el movimiento en la pantalla
+        this.posX = 700
+      }
+    }
+    moveLeft() {
+      this.keys.left = true;
+      this.keys.right = false;
+      // this.keys.jump = false;
+      this.posX -= 40;
+      if (this.posX < 40) {
+        this.posX = 40
+      }
+  
+      this.animateImg(framesCounter)
+      if (this.posX < 0) { //limitano el movimiento en la pantalla
+        this.posX = 0
+      }
+    }
+    moveJump() {
+      let sense = -1
+  
+      const intervalID = setInterval(() => {
+        this.posY += (10 * sense)
+  
+        if (this.posY < this.maxYWhenJumping) {
+          sense = 1
+        }
+  
+        if (this.posY === 500) {
+          clearInterval(intervalID)
+        }
+  
+      }, 10)
+    }
+    // hasta aqui DELETE
   drawPlayer = (framesCounter) => {
     // this.setListeners();
 
@@ -39,7 +89,7 @@ class Player {
       0,
       Math.floor(this.img.width / this.img.frames),
       this.img.height,
-      this.x,
+      this.posX,
       this.y,
       this.w,
       this.h
@@ -58,14 +108,22 @@ class Player {
     }
   }
 
+  // setListeners = () => {
+  //   document.onkeydown = function (event) {
+  //     if (event.keyCode === this.keys.arrowUp && this.y == this.y0) {
+  //       this.y -= 7;
+  //       this.vy -= 11;
+
+  //     } else if (event.keyCode == this.keys.spaceBar) {
+
+  //       this.shoot();
+  //     }
+  //   }.bind(this);
+  // }
+
   setListeners = () => {
     document.onkeydown = function (event) {
-      if (event.keyCode === this.keys.arrowUp && this.y == this.y0) {
-        this.y -= 7;
-        this.vy -= 11;
-
-      } else if (event.keyCode == this.keys.spaceBar) {
-
+      if (event.keyCode == this.keys.spaceBar) {
         this.shoot();
       }
     }.bind(this);

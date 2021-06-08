@@ -23,8 +23,25 @@ class Game {
   init = (id) => {
     this.canvasDOMEl = document.getElementById(id)
     this.ctx = this.canvasDOMEl.getContext("2d")
-    this.canvasDOMEl.setAttribute("height", this.canvasH);
+    this.canvasDOMEl.setAttribute("height", this.canvasH)
     this.canvasDOMEl.setAttribute("width", this.canvasW)
+    
+    window.onkeydown = (e) => {
+      if (e.keyCode === 37) {
+        this.player.moveLeft()
+        this.background.moveRight()
+      }
+
+      if (e.keyCode === 39) {
+        this.player.moveRight()
+        this.background.moveLeft()
+      }
+
+      if (e.keyCode === 32) {
+        this.player.moveJump()
+      }
+
+    }
     this.start()
   }
 
@@ -186,7 +203,7 @@ class Game {
     this.randomImpObs.forEach((obstacle) => {
       obstacle.draw();
     })
-    
+
     this.scoreBoard.drawScoreBoard()
     // this.scoreBoard.drawScoreMssg()
   }
@@ -196,7 +213,7 @@ class Game {
   }
 
   moveAll = () => {
-    this.background.moveBack()
+    // this.background.moveBack()
     this.background.moveNave()
     // this.background.moveNave2()
     // this.background.moveNave3()
@@ -251,6 +268,7 @@ class Game {
   // }
 
   disableButton = () => {
-    document.getElementById("start-button").style.display = "none";
+    // document.getElementById("start-button").style.display = "none";
+    document.querySelector(".star-planet").style.display = "none";
   }
 }
